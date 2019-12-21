@@ -1,0 +1,21 @@
+
+# some source code should be tracked
+venv/*
+# !venv/lib/
+# venv/lib/python3.6/*
+# !venv/lib/python3.6/site-packages
+# venv/lib/python3.6/site-packages/*
+# !venv/lib/python3.6/site-packages/django
+
+# ide
+.vscode
+
+# Python:
+# .pyc/.pyo/.pyd
+*.py[cod]
+*.so
+*.egg
+*.egg-info
+dist
+build
+*__pycache__
