@@ -19,3 +19,6 @@ venv/*
 dist
 build
 *__pycache__
+
+# global setting
+config.json

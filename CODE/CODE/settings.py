@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+from utils.web_setting import own_setting
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -75,8 +76,17 @@ WSGI_APPLICATION = 'CODE.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': own_setting.DB_NAME,
+        'USER': own_setting.DB_USERNAME,
+        'PASSWORD': own_setting.DB_PASSWORD,
+        'HOST': own_setting.DB_HOST,
+        'PORT': own_setting.DB_PORT,
+        # 'NAME': 'db_discovery',
+        # 'USER': 'root',
+        # 'PASSWORD': 'happy.yang',
+        # 'HOST': 'localhost',
+        # 'PORT': '3306',
     }
 }
 
