@@ -1,7 +1,11 @@
 from __future__ import absolute_import, unicode_literals
 import os
-from celery import Celery
 from datetime import timedelta
+
+from celery import Celery
+from celery_once import QueueOnce
+
+from utils.web_setting import own_setting
 
 # set the default Django settings module for the 'celery' program.
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'CODE.settings')
@@ -23,6 +27,15 @@ app.conf.beat_schedule = {
         'schedule': timedelta(seconds=1),
         'args': ()
     },
+}
+
+app.conf.ONCE = {
+    'backend': 'celery_once.backends.Redis',
+    'settings': {
+        'url': 'redis://{}:{}/0'.format(own_setting.REDIS_HOST,
+                                        own_setting.REDIS_PORT),
+        'default_timeout': 5 * 60
+    }
 }
 
 
