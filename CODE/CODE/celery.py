@@ -32,7 +32,7 @@ app.conf.beat_schedule = {
 app.conf.ONCE = {
     'backend': 'celery_once.backends.Redis',
     'settings': {
-        'url': 'redis://{}:{}/0'.format(own_setting.REDIS_HOST,
+        'url': 'redis://{}:{}/1'.format(own_setting.REDIS_HOST,
                                         own_setting.REDIS_PORT),
         'default_timeout': 5 * 60
     }

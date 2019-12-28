@@ -5,7 +5,7 @@ from celery import shared_task
 from celery_once import QueueOnce
 
 
-@shared_task(base=QueueOnce)
+@shared_task(base=QueueOnce, once={'graceful': True})
 def test_celery_beat():
     print('hello!')
     time.sleep(10)
