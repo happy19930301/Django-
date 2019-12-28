@@ -22,3 +22,6 @@ build
 
 # global setting
 config.json
+
+# celery
+celerybeat-schedule

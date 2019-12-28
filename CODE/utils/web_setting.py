@@ -28,5 +28,23 @@ class WebSetting:
     def DB_PORT(self):
         return self.setting['DB']['port']
 
+    @property
+    def REDIS_USERNAME(self):
+        return self.setting['REDIS']['username']
+
+    @property
+    def REDIS_PASSWORD(self):
+        return self.setting['REDIS']['password']
+
+    @property
+    def REDIS_HOST(self):
+        return self.setting['REDIS']['host']
+
+    @property
+    def REDIS_PORT(self):
+        return self.setting['REDIS']['port']
+
+    
+
 
 own_setting = WebSetting()

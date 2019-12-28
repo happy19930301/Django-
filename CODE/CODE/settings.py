@@ -38,6 +38,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_celery_results',
+]
+
+INSTALLED_APPS += [
+    'netdisc'
 ]
 
 MIDDLEWARE = [
@@ -82,11 +87,6 @@ DATABASES = {
         'PASSWORD': own_setting.DB_PASSWORD,
         'HOST': own_setting.DB_HOST,
         'PORT': own_setting.DB_PORT,
-        # 'NAME': 'db_discovery',
-        # 'USER': 'root',
-        # 'PASSWORD': 'happy.yang',
-        # 'HOST': 'localhost',
-        # 'PORT': '3306',
     }
 }
 
@@ -128,3 +128,16 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+# Celery settings
+
+CELERY_BROKER_URL = 'redis://{}:{}/1'.format(own_setting.REDIS_HOST, own_setting.REDIS_PORT)
+
+#: Only add pickle to this list if your broker is secured
+#: from unwanted access (see userguide/security.html)
+CELERY_ACCEPT_CONTENT = ['pickle']
+CELERY_RESULT_BACKEND = 'django-db'
+CELERY_TASK_SERIALIZER = 'pickle'
+
+CELERY_TIMEZONE = TIME_ZONE
