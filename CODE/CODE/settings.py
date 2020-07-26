@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 from utils.web_setting import own_setting
+from mongoengine import connect
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -39,11 +40,16 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_celery_results',
-    'django_extensions'
+    'django_extensions',
+    'rest_framework',
+    'django_filters',
+    'rest_framework_mongoengine',
+    'django_mongoengine_filter'
 ]
 
 INSTALLED_APPS += [
-    'netdisc'
+    'netdisc',
+    'mongo_test'
 ]
 
 MIDDLEWARE = [
@@ -142,3 +148,12 @@ CELERY_RESULT_BACKEND = 'django-db'
 CELERY_TASK_SERIALIZER = 'pickle'
 
 CELERY_TIMEZONE = TIME_ZONE
+
+# mongo setting
+# connect('ATF_DB', host='localhost')
+
+REST_FRAMEWORK = {
+    'DEFAULT_FILTER_BACKENDS': ('django_filters.rest_framework.DjangoFilterBackend',),
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
+    'PAGE_SIZE': 10,
+}
