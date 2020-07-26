@@ -3,7 +3,7 @@ import os
 from datetime import timedelta
 
 from celery import Celery
-from celery_once import QueueOnce
+# from celery_once import QueueOnce
 
 from utils.web_setting import own_setting
 

@@ -3,7 +3,6 @@ import os
 
 class WebSetting:
     def __init__(self):
-        # 
         self.dir = os.path.dirname(os.path.abspath(__file__))
         with open(os.path.join(self.dir, '../../config.json'), 'r') as f:
             self.setting = json.load(f)
@@ -43,8 +42,6 @@ class WebSetting:
     @property
     def REDIS_PORT(self):
         return self.setting['REDIS']['port']
-
-    
 
 
 own_setting = WebSetting()
