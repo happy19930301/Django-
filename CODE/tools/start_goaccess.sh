@@ -1,0 +1,1 @@
+sudo goaccess -f /var/log/nginx/access.log -a --date-format='%d/%b/%Y' --time-format='%H:%M:%S' --log-format=COMBINED > /home/happy/projects/Django-source-code-studying/Frondend/nginx_log_report/report.html
