@@ -43,5 +43,9 @@ class WebSetting:
     def REDIS_PORT(self):
         return self.setting['REDIS']['port']
 
+    @property
+    def UPLOAD_FOLDER(self):
+        return self.setting['UPLOAD_FOLDER']
+
 
 own_setting = WebSetting()

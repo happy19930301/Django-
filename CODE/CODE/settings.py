@@ -11,10 +11,13 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+
 from utils.web_setting import own_setting
+from django.core.files.storage import FileSystemStorage
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+UPLOAD_STORAGE = FileSystemStorage(location=own_setting.UPLOAD_FOLDER)
 
 
 # Quick-start development settings - unsuitable for production
